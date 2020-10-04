@@ -1,44 +1,60 @@
-// C++ program for implementation of Bubble sort 
-#include <bits/stdc++.h> 
-using namespace std; 
+#include<iostream.h>
+#include<conio.h>
 
-void swap(int *xp, int *yp) 
-{ 
-	int temp = *xp; 
-	*xp = *yp; 
-	*yp = temp; 
-} 
+void Bubsort(int[],int);
+
+void main()
+{
+   clrscr();
+   
+   int ARR[20],N,ITEM;
+   
+   cout<<"Enter desired array size(max 20):";
+   cin>>N;
+   
+  if(N>20)
+     N=20;
+
+  cout<<"\n Enter Array Element:\n";
+  for(int i=0;i<N;i++)
+    cin>>ARR[i];
+
+  Bubsort(ARR,N);
+  cout<<"The sorted array (Bubblesort)is shown below..\n";
+    for(i=0;i<N;i++)
+     cout<<ARR[i]<<" ";
+
+  getch();
+
+}
+
+  void Bubsort(int A[],int size)
+   {
+     int flag=1,temp;
+
+     for(int i=0;i<size&&flag;i++)
+       {
+	  flag=0;
+
+	  for(int j=0;j<(size-1)-i;j++)
+	  if(A[j]>A[j+1])
+	    {
+	       temp =A[j];
+	       A[j]=A[j+1];
+	       A[j+1]=temp;
+	       flag=1;
+	    }
+
+       }
+   }
 
 
-void bubbleSort(int arr[], int n) 
-{ 
-	int i, j; 
-	for (i = 0; i < n-1; i++)	 
-	
-	// Last i elements are already in place 
-	for (j = 0; j < n-i-1; j++) 
-		if (arr[j] > arr[j+1]) 
-			swap(&arr[j], &arr[j+1]); 
-} 
 
 
-void printArray(int arr[], int size) 
-{ 
-	int i; 
-	for (i = 0; i < size; i++) 
-		cout << arr[i] << " "; 
-	cout << endl; 
-} 
 
- 
-int main() 
-{ 
-	int arr[] = {64, 34, 25, 12, 22, 11, 90}; 
-	int n = sizeof(arr)/sizeof(arr[0]); 
-	bubbleSort(arr, n); 
-	cout<<"Sorted array: \n"; 
-	printArray(arr, n); 
-	return 0; 
-} 
+
+
+
+
 
 
